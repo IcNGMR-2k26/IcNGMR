@@ -67,6 +67,7 @@ const steeringCommittee: Member[] = [
   { name: 'Dr. P. Kishore Kumar', title: 'HoD – M.E.' },
   { name: 'Dr. U. Ramakrishna', title: 'HoD – C.E.' },
   { name: 'Dr. P. Kalyani', title: 'HoD – FME' },
+  { name: 'Dr.N.Sathyanarayan', title: 'Rtd.Senior Scientist,BARC,Professor of Physics,VBIT' }
 ];
 
 const technicalCommittee: Member[] = [
