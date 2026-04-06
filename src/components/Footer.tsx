@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
               Ic<span className="text-sky-400">NGMR</span> 2026
             </h2>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-              International Conference on Natural Language Processing, Generative AI & Machine Learning for Reconfigurable Intelligence
+              International Conference on Natural Language Processing, Generative AI and Machine Learning for Reconfigurable Intelligence
             </p>
             <div className="flex items-center space-x-4 pt-2">
               <a href="#" className="p-2 bg-white/5 rounded-lg hover:bg-sky-500 transition-all">

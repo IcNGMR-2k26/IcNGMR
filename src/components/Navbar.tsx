@@ -99,7 +99,7 @@ const Navbar: React.FC = () => {
               <div className="mt-1">
                 <p className="text-sky-600 font-extrabold text-[10px] md:text-xs uppercase tracking-widest">International Conference on</p>
                 <p className="text-slate-600 font-bold text-[10px] md:text-[13px] italic leading-tight">
-                  “Natural Language Processing, Generative AI & Machine Learning for Reconfigurable Intelligence”
+                  “Natural Language Processing, Generative AI and Machine Learning for Reconfigurable Intelligence”
                 </p>
               </div>
             </div>

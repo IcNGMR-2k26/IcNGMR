@@ -57,7 +57,7 @@ const Home: React.FC = () => {
               </h1>
 
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-800 mb-4 leading-tight">
-                NLP, Generative AI & Machine Learning for Reconfigurable Intelligence
+                NLP, Generative AI and Machine Learning for Reconfigurable Intelligence
               </h2>
 
               <p className="text-base md:text-lg text-slate-500 mb-8 max-w-xl leading-relaxed font-medium">
@@ -193,7 +193,7 @@ const Home: React.FC = () => {
                 <Users size={24} />
               </div>
               <h3 className="font-black text-xl text-slate-900 mb-2">Scope</h3>
-              <p className="text-slate-500 font-medium">AI, ML, Data Science & GenAI</p>
+              <p className="text-slate-500 font-medium">AI, ML, Data Science and GenAI</p>
             </div>
           </div>
         </div>
