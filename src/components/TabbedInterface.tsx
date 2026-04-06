@@ -109,8 +109,8 @@ export default function TabbedInterface() {
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`px-6 py-2.5 rounded-xl font-bold transition-all duration-300 text-sm uppercase tracking-tighter ${activeTab === tab
-                    ? "bg-sky-500 text-white shadow-lg scale-105"
-                    : "text-slate-400 hover:text-sky-500"
+                  ? "bg-sky-500 text-white shadow-lg scale-105"
+                  : "text-slate-400 hover:text-sky-500"
                   }`}
               >
                 {tab === 'tracks' ? 'Technical Tracks' : 'Important Dates'}
