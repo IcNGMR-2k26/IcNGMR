@@ -108,7 +108,6 @@ const Navbar: React.FC = () => {
           <div className={`flex items-center space-x-4 md:space-x-8 transition-all duration-500 ${isScrolled ? 'scale-75 origin-right' : 'scale-100'}`}>
             <img src="/NBA.png" alt="NBA" className="h-16 w-auto" />
             <img src="/NAAC.jpeg" alt="NAAC" className="h-14 w-auto" />
-            <img src="/csi_logo.png" alt="CSI" className="h-14 w-auto" />
           </div>
         </div>
       </div>
