@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
       <Link
         to={to}
         onClick={onClick}
-        className={`flex items-center whitespace-nowrap text-xs lg:text-[13px] font-black tracking-wide px-3 lg:px-4 py-2.5 rounded-xl transition-all duration-300 ease-out transform
+        className={`flex items-center whitespace-nowrap text-[10px] lg:text-xs font-black tracking-wide px-2 lg:px-2.5 py-2 rounded-xl transition-all duration-300 ease-out transform
           ${isActive
             ? 'bg-gradient-to-br from-white to-sky-50 text-slate-900 shadow-lg scale-105 border-b-2 border-sky-300'
             : 'text-white hover:bg-white/20 hover:backdrop-blur-md hover:scale-105 active:scale-95'}`}
@@ -131,14 +131,14 @@ const Navbar: React.FC = () => {
             <div className="hidden xl:flex items-center justify-center gap-x-1.5">
               <NavLink to="/" icon={Home}>Home</NavLink>
               <NavLink to="/about" icon={Info}>About</NavLink>
-              <NavLink to="/keynote-speakers" icon={Mic}>Speakers</NavLink>
+              <NavLink to="/keynote-speakers" icon={Mic}>Keynote Speakers</NavLink>
               <NavLink to="/committee" icon={Users}>Committee</NavLink>
               <NavLink to="/technical-tracks" icon={BookOpen}>Tracks</NavLink>
 
               <a
                 href="/#important-dates"
                 onClick={handleImportantDatesClick}
-                className={`flex items-center whitespace-nowrap text-xs lg:text-[13px] font-black text-white px-4 py-2.5 rounded-xl transition-all duration-300 transform hover:bg-white/20 hover:scale-105 active:scale-95`}
+                className={`flex items-center whitespace-nowrap text-[10px] lg:text-xs font-black text-white px-2 lg:px-2.5 py-2 rounded-xl transition-all duration-300 transform hover:bg-white/20 hover:scale-105 active:scale-95`}
               >
                 <Calendar className="h-4 w-4 mr-2" /> Important Dates
               </a>
@@ -149,25 +149,30 @@ const Navbar: React.FC = () => {
                 onMouseEnter={() => setIsEthicsOpen(true)}
                 onMouseLeave={() => setIsEthicsOpen(false)}
               >
-                <button className={`flex items-center whitespace-nowrap text-xs lg:text-[13px] font-black px-4 py-2.5 rounded-xl transition-all duration-300 transform hover:scale-105 
+                <button className={`flex items-center whitespace-nowrap text-[10px] lg:text-xs font-black px-2 lg:px-2.5 py-2 rounded-xl transition-all duration-300 transform hover:scale-105 
                   ${location.pathname.includes('guidelines')
                     ? 'bg-gradient-to-br from-white to-sky-50 text-slate-900 shadow-lg border-b-2 border-sky-300'
                     : 'text-white hover:bg-white/20'}`}>
                   <Scale className={`h-4 w-4 mr-2 ${location.pathname.includes('guidelines') ? 'text-sky-500' : 'text-white'}`} />
-                  Ethics
+                  Ethics & Malpractices
                   <ChevronDown className={`ml-1 h-3 w-3 transition-transform duration-500 ${isEthicsOpen ? 'rotate-180' : ''}`} />
                 </button>
                 <div className="absolute h-4 w-full top-full"></div>
                 <div className={`absolute top-[calc(100%+8px)] left-0 w-52 bg-white rounded-2xl shadow-2xl py-3 border border-slate-100 transition-all duration-300 origin-top transform
                   ${isEthicsOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-4 pointer-events-none'}`}>
-                  {['Author', 'Editor', 'Reviewer'].map((type) => (
+                  {[
+                    { name: 'Author Guidelines', path: '/author-guidelines' },
+                    { name: 'Editor Guidelines', path: '/editor-guidelines' },
+                    { name: 'Reviewer Guidelines', path: '/reviewer-guidelines' },
+                    { name: 'Review Process', path: '/review-process' }
+                  ].map((item) => (
                     <Link
-                      key={type}
-                      to={`/${type.toLowerCase()}-guidelines`}
+                      key={item.name}
+                      to={item.path}
                       className="flex items-center px-5 py-3 text-sm text-slate-700 hover:bg-sky-50 hover:text-sky-600 font-bold transition-all"
                       onClick={() => setIsEthicsOpen(false)}
                     >
-                      {type} Guidelines
+                      {item.name}
                     </Link>
                   ))}
                 </div>
@@ -199,7 +204,7 @@ const Navbar: React.FC = () => {
           <div className="p-6 space-y-2">
             <Link to="/" className="flex items-center text-white p-3 font-bold rounded-xl hover:bg-white/10"><Home size={18} className="mr-3" /> Home</Link>
             <Link to="/about" className="flex items-center text-white p-3 font-bold rounded-xl hover:bg-white/10"><Info size={18} className="mr-3" /> About</Link>
-            <Link to="/keynote-speakers" className="flex items-center text-white p-3 font-bold rounded-xl hover:bg-white/10"><Mic size={18} className="mr-3" /> Speakers</Link>
+            <Link to="/keynote-speakers" className="flex items-center text-white p-3 font-bold rounded-xl hover:bg-white/10"><Mic size={18} className="mr-3" /> Keynote Speakers</Link>
             <Link to="/committee" className="flex items-center text-white p-3 font-bold rounded-xl hover:bg-white/10"><Users size={18} className="mr-3" /> Committee</Link>
             <Link to="/technical-tracks" className="flex items-center text-white p-3 font-bold rounded-xl hover:bg-white/10"><BookOpen size={18} className="mr-3" /> Tracks</Link>
 
@@ -213,7 +218,7 @@ const Navbar: React.FC = () => {
                 onClick={() => setIsMobileEthicsOpen(!isMobileEthicsOpen)}
                 className="w-full flex items-center justify-between text-white p-3 font-bold rounded-xl hover:bg-white/10"
               >
-                <div className="flex items-center"><Scale size={18} className="mr-3" /> Ethics Guidelines</div>
+                <div className="flex items-center"><Scale size={18} className="mr-3" /> Ethics & Malpractices</div>
                 <ChevronDown size={16} className={`transition-transform ${isMobileEthicsOpen ? 'rotate-180' : ''}`} />
               </button>
               {isMobileEthicsOpen && (
@@ -221,6 +226,7 @@ const Navbar: React.FC = () => {
                   <Link to="/author-guidelines" className="block p-2 text-sky-100 text-sm font-medium">Author Guidelines</Link>
                   <Link to="/editor-guidelines" className="block p-2 text-sky-100 text-sm font-medium">Editor Guidelines</Link>
                   <Link to="/reviewer-guidelines" className="block p-2 text-sky-100 text-sm font-medium">Reviewer Guidelines</Link>
+                  <Link to="/review-process" className="block p-2 text-sky-100 text-sm font-medium">Review Process</Link>
                 </div>
               )}
             </div>

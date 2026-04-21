@@ -44,11 +44,11 @@ const nationalAdvisory: Member[] = [
   { name: 'Dr. V. Ramesh', title: 'Professor, Tezpur University, Assam' }
 ];
 
-const organizingSecretary: Member[] = [
-  { name: 'Dr. M. Venkateswara Rao', title: 'Professor, Dept. of C.S.E.' },
-  { name: 'Dr. G. Arun', title: 'Associate Professor, Dept. of C.S.E.' },
-  { name: 'Dr. N. Arjun', title: 'Associate Professor, Dept. of C.S.E.' },
-  { name: 'Dr. P. Yamini Devi', title: 'Associate Professor, Dept. of C.S.E.' },
+const organizingCommittee: Member[] = [
+  { name: 'Dr. M. Venkateswara Rao', title: 'Professor, Dept. of C.S.E. Aushapur (V), Ghatkesar (M), Medchal-Malkajgiri District, Hyderabad, Telangana – 501301.' },
+  { name: 'Dr. G. Arun', title: 'Associate Professor, Dept. of C.S.E. Aushapur (V), Ghatkesar (M), Medchal-Malkajgiri District, Hyderabad, Telangana – 501301.' },
+  { name: 'Dr. N. Arjun', title: 'Associate Professor, Dept. of C.S.E. Aushapur (V), Ghatkesar (M), Medchal-Malkajgiri District, Hyderabad, Telangana – 501301.' },
+  { name: 'Dr. P. Yamini Devi', title: 'Associate Professor, Dept. of C.S.E. Aushapur (V), Ghatkesar (M), Medchal-Malkajgiri District, Hyderabad, Telangana – 501301.' },
 ];
 
 const steeringCommittee: Member[] = [
@@ -70,10 +70,10 @@ const steeringCommittee: Member[] = [
   { name: 'Dr.N.Sathyanarayan', title: 'Rtd.Senior Scientist,BARC,Professor of Physics,VBIT' }
 ];
 
-const technicalCommittee: Member[] = [
-  { name: 'Dr. G. Sreeram', title: 'Professor, Dept. of C.S.E.' },
-  { name: 'Dr. N. Swapna', title: 'Associate Professor, Dept. of C.S.E.' },
-  { name: 'Mr. V. Sathish', title: 'Assistant Professor, Dept. of C.S.E.' },
+const technicalProgrammeCommittee: Member[] = [
+  { name: 'Dr. G. Sreeram', title: 'Professor, Dept. of C.S.E., Aushapur (V), Ghatkesar (M), Medchal-Malkajgiri District, Hyderabad, Telangana – 501301' },
+  { name: 'Dr. N. Swapna', title: 'Associate Professor, Dept. of C.S.E., Aushapur (V), Ghatkesar (M), Medchal-Malkajgiri District, Hyderabad, Telangana – 501301.' },
+  { name: 'Mr. V. Sathish', title: 'Assistant Professor, Dept. of C.S.E, Aushapur (V), Ghatkesar (M), Medchal-Malkajgiri District, Hyderabad, Telangana – 501301' },
 ];
 
 const publicationCommittee: Member[] = [
@@ -112,8 +112,8 @@ const hospitalityCommittee: Member[] = [
 ];
 
 const CommitteeSection = ({ title, members, icon }: { title: string; members: Member[]; icon: React.ReactNode }) => (
-  <div className="mb-12"> {/* Reduced from mb-20 to mb-12 */}
-    <div className="flex items-center space-x-4 mb-6"> {/* Reduced from mb-10 to mb-6 */}
+  <div className="mb-12">
+    <div className="flex items-center space-x-4 mb-6">
       <div className="p-2.5 bg-sky-500 rounded-xl shadow-md shadow-sky-100">
         {icon}
       </div>
@@ -122,7 +122,7 @@ const CommitteeSection = ({ title, members, icon }: { title: string; members: Me
         <div className="w-10 h-1 bg-sky-500 rounded-full mt-1"></div>
       </div>
     </div>
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"> {/* Reduced gap from 6 to 5 */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {members.map((member, index) => (
         <div key={index} className="group bg-white p-5 rounded-[1.2rem] border border-slate-100 shadow-lg shadow-slate-200/30 hover:-translate-y-1 hover:shadow-xl hover:border-sky-200 transition-all duration-300">
           <h3 className="font-extrabold text-slate-900 text-base mb-1 group-hover:text-sky-600 transition-colors leading-tight">{member.name}</h3>
@@ -134,9 +134,9 @@ const CommitteeSection = ({ title, members, icon }: { title: string; members: Me
 );
 
 const Committee = () => (
-  <div className="min-h-screen bg-slate-50 py-8 lg:py-12"> {/* Tightened vertical padding to match Home reference */}
+  <div className="min-h-screen bg-slate-50 py-8 lg:py-12">
     <div className="max-w-7xl mx-auto px-6 lg:px-12">
-      <div className="text-center mb-12"> {/* Reduced from mb-24 to mb-12 */}
+      <div className="text-center mb-12">
         <div className="inline-flex items-center space-x-2 px-3 py-1 bg-sky-100 rounded-full text-sky-700 text-[10px] font-bold uppercase tracking-widest mb-4 border border-sky-200">
           <Star className="h-3 w-3" />
           <span>ICNGMR 2026 Organizing Body</span>
@@ -146,17 +146,16 @@ const Committee = () => (
         </h1>
       </div>
 
-      {/* Spacing blw sections is now consistent and compact */}
       <CommitteeSection title="Chief Patrons" members={chiefPatrons} icon={<ShieldCheck className="text-white h-5 w-5" />} />
       <CommitteeSection title="Patrons" members={patrons} icon={<Star className="text-white h-5 w-5" />} />
       <CommitteeSection title="Conference Chair" members={conferenceChair} icon={<User className="text-white h-5 w-5" />} />
       <CommitteeSection title="International Advisory Committee" members={internationalAdvisory} icon={<Globe className="text-white h-5 w-5" />} />
       <CommitteeSection title="National Advisory Committee" members={nationalAdvisory} icon={<Award className="text-white h-5 w-5" />} />
-      <CommitteeSection title="Organizing Secretary" members={organizingSecretary} icon={<Users className="text-white h-5 w-5" />} />
+      <CommitteeSection title="Organizing Committee" members={organizingCommittee} icon={<Users className="text-white h-5 w-5" />} />
       <CommitteeSection title="Steering Committee" members={steeringCommittee} icon={<ShieldCheck className="text-white h-5 w-5" />} />
       <CommitteeSection title="Publication Committee" members={publicationCommittee} icon={<ClipboardCheck className="text-white h-5 w-5" />} />
       <CommitteeSection title="Registration Committee" members={registrationCommittee} icon={<ClipboardCheck className="text-white h-5 w-5" />} />
-      <CommitteeSection title="Technical Committee" members={technicalCommittee} icon={<Mic2 className="text-white h-5 w-5" />} />
+      <CommitteeSection title="Technical Programme Committee" members={technicalProgrammeCommittee} icon={<Mic2 className="text-white h-5 w-5" />} />
       <CommitteeSection title="Publicity Committee" members={publicityCommittee} icon={<Users className="text-white h-5 w-5" />} />
       <CommitteeSection title="Hospitality Committee" members={hospitalityCommittee} icon={<Coffee className="text-white h-5 w-5" />} />
     </div>
